@@ -7,8 +7,18 @@ Educational repository showcasing conversational patterns built with LangGraph. 
 ### 1. Booking Pattern
 A conversational agent that guides users through the process of booking an appointment. The agent asks for missing information, validates availability, and confirms bookings.
 
-- **Video Tutorial**: [Coming soon on YouTube]
-- **Detailed Article**: [Coming soon on Medium]
+<div align="center">
+  <a href="https://youtu.be/6p7aGX2jNCY" rel="nofollow">
+    <img src="https://img.youtube.com/vi/6p7aGX2jNCY/0.jpg" alt="Booking Pattern Tutorial" style="max-width: 100%; border-radius: 8px;">
+  </a>
+</div>
+
+<div align="center">
+  <img src="img/BookingDiagram.PNG" alt="Booking Pattern Diagram" style="max-width: 100%; border-radius: 8px; margin-top: 20px;">
+</div>
+
+- **Video Tutorial**: [Watch on YouTube](https://youtu.be/6p7aGX2jNCY)
+- **Detailed Article**: [Read on Medium](https://medium.com/@juanluaiengineer/stop-building-unpredictable-ai-agents-for-booking-systems-62b18b405a1e?utm_source=github)
 - **Code**: `patterns/booking/src/`
 
 **Key Concepts:**
@@ -27,7 +37,7 @@ A conversational agent that guides users through the process of booking an appoi
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/langgraph-conversational-patterns.git
+git clone https://github.com/juanludataanalyst/langgraph-conversational-patterns.git
 cd langgraph-conversational-patterns
 ```
 
