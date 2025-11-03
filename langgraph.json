@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    "./patterns/booking",
+    "./patterns/modify_appointment"
+  ],
+  "graphs": {
+    "booking": "patterns.booking.graph:app",
+    "modify_appointment": "patterns.modify_appointment.graph:app"
+  },
+  "env": ".env"
+}

@@ -13,8 +13,8 @@ The flow is based on simple decisions about the conversation's state.
 """
 
 from langgraph.graph import StateGraph, START, END
-from src.patterns.booking.state import BookingState
-from src.patterns.booking.nodes import BookingNodes
+from patterns.booking.state import BookingState
+from patterns.booking.nodes import BookingNodes
 
 def create_booking_graph():
     """

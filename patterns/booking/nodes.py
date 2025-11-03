@@ -11,7 +11,7 @@ Each node represents a specific step in the conversation:
 """
 
 from langchain_core.messages import AIMessage
-from src.patterns.booking.state import BookingState
+from patterns.booking.state import BookingState
 
 class BookingNodes:
     """Nodes for the booking conversational flow."""

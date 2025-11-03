@@ -19,13 +19,26 @@ A conversational agent that guides users through the process of booking an appoi
 
 - **Video Tutorial**: [Watch on YouTube](https://youtu.be/6p7aGX2jNCY)
 - **Detailed Article**: [Read on Medium](https://medium.com/@juanluaiengineer/stop-building-unpredictable-ai-agents-for-booking-systems-62b18b405a1e?utm_source=github)
-- **Code**: `patterns/booking/src/`
+- **Code**: `patterns/booking/`
 
 **Key Concepts:**
 - Incremental information gathering
 - Conditional routing based on state
 - Availability validation
 - Confirmation handling
+
+### 2. Modify Appointment Pattern
+A conversational agent that helps users modify or cancel existing appointments. The agent identifies the customer, looks up their appointments, processes modifications or cancellations, and validates availability for changes.
+
+- **Code**: `patterns/modify_appointment/`
+
+**Key Concepts:**
+- Customer identification and lookup
+- Appointment selection from multiple results
+- Modification request parsing (time, date, service)
+- Availability validation for changes
+- Confirmation handling for modifications
+- Cancellation processing
 
 ## 🚀 Getting Started
 
@@ -52,10 +65,10 @@ Each pattern can be run with LangGraph Studio or locally:
 
 ```bash
 # With LangGraph Studio
-langgraph up patterns/booking/src/graph.py
+langgraph up patterns/booking/graph.py
 
 # Local testing
-python -m patterns.booking.src.graph
+python patterns/booking/graph.py
 ```
 
 ## 🤝 Contributing
@@ -71,7 +84,7 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute.
 ## 📖 Learning Path
 
 1. **Video**: Watch the tutorial to understand the pattern
-2. **Code**: Explore the implementation in `src/`
+2. **Code**: Explore the implementation in `patterns/<pattern-name>/`
 3. **Article**: Read the detailed explanation on Medium
 4. **Experiment**: Modify and extend the pattern
 
@@ -83,13 +96,19 @@ langgraph-conversational-patterns/
 ├── CONTRIBUTING.md              # How to contribute
 ├── LICENSE                      # MIT License
 ├── requirements.txt             # Python dependencies
+├── img/                         # Visual assets
+│   └── BookingDiagram.PNG       # Architecture diagram
 └── patterns/
-    └── booking/                 # First pattern
-        └── src/                 # Source code
-            ├── __init__.py
-            ├── state.py         # State schema
-            ├── nodes.py         # Graph nodes
-            └── graph.py         # Graph definition
+    ├── booking/                 # Booking pattern
+    │   ├── __init__.py
+    │   ├── state.py             # State schema
+    │   ├── nodes.py             # Graph nodes
+    │   └── graph.py             # Graph definition
+    └── modify_appointment/       # Modify/Cancel appointments pattern
+        ├── __init__.py
+        ├── state.py             # State schema
+        ├── nodes.py             # Graph nodes
+        └── graph.py             # Graph definition
 ```
 
 ## 📝 License
