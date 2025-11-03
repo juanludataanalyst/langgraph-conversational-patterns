@@ -1,6 +1,10 @@
 # Conversational LangGraph Patterns
 
-Educational repository showcasing conversational patterns built with LangGraph. Each pattern demonstrates core concepts for building agentic conversational systems.
+Educational repository showcasing conversational patterns built with LangGraph. Each pattern demonstrates core concepts for building agentic conversational systems with practical, real-world examples.
+
+Currently featuring two patterns:
+- **Booking Pattern**: Guide users through booking appointments
+- **Modify Appointment Pattern**: Help users modify or cancel existing appointments
 
 ## 📚 Available Patterns
 
@@ -29,6 +33,10 @@ A conversational agent that guides users through the process of booking an appoi
 
 ### 2. Modify Appointment Pattern
 A conversational agent that helps users modify or cancel existing appointments. The agent identifies the customer, looks up their appointments, processes modifications or cancellations, and validates availability for changes.
+
+<div align="center">
+  <img src="img/Modify_appointment_diagram.PNG" alt="Modify Appointment Pattern Diagram" style="max-width: 100%; border-radius: 8px; margin-top: 20px;">
+</div>
 
 - **Code**: `patterns/modify_appointment/`
 
@@ -59,16 +67,31 @@ cd langgraph-conversational-patterns
 pip install -r requirements.txt
 ```
 
-### Running a Pattern
+3. Set up your environment (optional):
+```bash
+cp .env.example .env  # if you have an .env.example file
+```
 
-Each pattern can be run with LangGraph Studio or locally:
+### Running the Patterns
+
+#### Option 1: LangGraph Studio (Recommended)
+View and test all patterns in an interactive web interface:
 
 ```bash
-# With LangGraph Studio
-langgraph up patterns/booking/graph.py
+uv run langgraph dev
+```
 
-# Local testing
+Then open `http://localhost:8000` in your browser. You'll see both patterns available to test.
+
+#### Option 2: Test Locally
+Run a specific pattern directly:
+
+```bash
+# Booking pattern
 python patterns/booking/graph.py
+
+# Modify Appointment pattern
+python patterns/modify_appointment/graph.py
 ```
 
 ## 🤝 Contributing
@@ -92,23 +115,25 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute.
 
 ```
 langgraph-conversational-patterns/
-├── README.md                    # This file
-├── CONTRIBUTING.md              # How to contribute
-├── LICENSE                      # MIT License
-├── requirements.txt             # Python dependencies
-├── img/                         # Visual assets
-│   └── BookingDiagram.PNG       # Architecture diagram
+├── README.md                         # This file
+├── CONTRIBUTING.md                   # How to contribute
+├── LICENSE                           # MIT License
+├── requirements.txt                  # Python dependencies
+├── langgraph.json                    # LangGraph Studio configuration
+├── img/                              # Visual assets
+│   ├── BookingDiagram.PNG            # Booking pattern architecture
+│   └── Modify_appointment_diagram.PNG # Modify appointment pattern architecture
 └── patterns/
-    ├── booking/                 # Booking pattern
+    ├── booking/                      # Booking pattern
     │   ├── __init__.py
-    │   ├── state.py             # State schema
-    │   ├── nodes.py             # Graph nodes
-    │   └── graph.py             # Graph definition
-    └── modify_appointment/       # Modify/Cancel appointments pattern
+    │   ├── state.py                  # State schema
+    │   ├── nodes.py                  # Graph nodes
+    │   └── graph.py                  # Graph definition
+    └── modify_appointment/            # Modify/Cancel appointments pattern
         ├── __init__.py
-        ├── state.py             # State schema
-        ├── nodes.py             # Graph nodes
-        └── graph.py             # Graph definition
+        ├── state.py                  # State schema
+        ├── nodes.py                  # Graph nodes
+        └── graph.py                  # Graph definition
 ```
 
 ## 📝 License

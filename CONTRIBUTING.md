@@ -15,15 +15,23 @@ Thank you for your interest in contributing! This document provides guidelines a
 2. Follow the structure of existing patterns:
    ```
    patterns/your-pattern/
-   └── src/
-       ├── __init__.py
-       ├── state.py      # Define your state schema
-       ├── nodes.py      # Implement your nodes
-       └── graph.py      # Create your graph
+   ├── __init__.py
+   ├── state.py      # Define your state schema
+   ├── nodes.py      # Implement your nodes
+   └── graph.py      # Create your graph
    ```
 3. Ensure your pattern is well-documented with comments
-4. Test your code thoroughly
-5. Update the main README.md with information about your pattern
+4. Add a diagram (optional) to the `img/` folder
+5. Update `langgraph.json` to register your pattern:
+   ```json
+   {
+     "graphs": {
+       "your-pattern": "patterns.your_pattern.graph:app"
+     }
+   }
+   ```
+6. Test your code thoroughly with `uv run langgraph dev`
+7. Update the main README.md with information about your pattern
 
 ### Improving Existing Patterns
 - Fix bugs or improve code clarity
