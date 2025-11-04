@@ -35,9 +35,17 @@ A conversational agent that guides users through the process of booking an appoi
 A conversational agent that helps users modify or cancel existing appointments. The agent identifies the customer, looks up their appointments, processes modifications or cancellations, and validates availability for changes.
 
 <div align="center">
+  <a href="https://www.youtube.com/watch?v=l7e3HEotJHk" rel="nofollow">
+    <img src="https://img.youtube.com/vi/l7e3HEotJHk/0.jpg" alt="Modify Appointment Pattern Tutorial" style="max-width: 100%; border-radius: 8px;">
+  </a>
+</div>
+
+<div align="center">
   <img src="img/Modify_appointment_diagram.PNG" alt="Modify Appointment Pattern Diagram" style="max-width: 100%; border-radius: 8px; margin-top: 20px;">
 </div>
 
+- **Video Tutorial**: [Watch on YouTube](https://www.youtube.com/watch?v=l7e3HEotJHk)
+- **Detailed Article**: [Read on Medium](https://medium.com/ai-in-plain-english/your-booking-chatbot-is-great-until-customers-want-to-change-something-8e4bffc9188f?utm_source=github)
 - **Code**: `patterns/modify_appointment/`
 
 **Key Concepts:**
