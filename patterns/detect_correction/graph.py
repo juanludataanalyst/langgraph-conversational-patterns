@@ -15,12 +15,12 @@ from patterns.detect_correction.nodes import DetectCorrectionNodes
 def create_detect_correction_graph():
     """
     Creates the conversational graph for the Detect Correction pattern.
-    
-    Follows aibarber's pattern:
-    1. detect_correction: Detects user corrections/rejections
-    2. detect_intent: Determines intent (influenced by corrections)
-    3. process_intent: Processes the specific intent with corrections applied
-    4. respond_user: Sends response to user
+
+    Flow (optimized for rejection handling):
+    - Normal flow: START → detect_correction → detect_intent → process_intent → respond_user → END
+    - Rejection:   START → detect_correction → respond_user → END (early exit)
+
+    Key pattern: Corrections are detected FIRST and influence intent detection.
     """
     print("🏗️ Building Detect Correction graph...")
 
@@ -57,22 +57,7 @@ def create_detect_correction_graph():
             print("➡️ Normal/correction flow → detect_intent")
             return "detect_intent"
 
-    def route_after_intent(state: DetectCorrectionState) -> str:
-        """
-        Route after intent detection.
-        
-        - If rejection detected → go directly to respond_user (early exit)
-        - Otherwise → process the intent
-        """
-        intent = state.get("intent")
-        print(f"🔀 Routing after intent detection: {intent}")
-        
-        if intent == "reject":
-            print("🚫 Rejection intent → direct to respond_user")
-            return "respond_user"
-        else:
-            print("⚙️ Normal intent → process_intent")
-            return "process_intent"
+    # NOTE: Rejection is handled in detect_correction → respond_user (no route_after_intent needed)
 
     def route_after_processing(state: DetectCorrectionState) -> str:
         """
@@ -100,15 +85,9 @@ def create_detect_correction_graph():
         }
     )
 
-    # 3. After intent detection, route based on intent type
-    workflow.add_conditional_edges(
-        "detect_intent",
-        route_after_intent,
-        {
-            "process_intent": "process_intent",
-            "respond_user": "respond_user"  # For rejection cases
-        }
-    )
+    # 3. After intent detection, always process the intent
+    # (Rejection cases are already handled and routed to respond_user from detect_correction)
+    workflow.add_edge("detect_intent", "process_intent")
 
     # 4. After processing intent, always respond
     workflow.add_conditional_edges(

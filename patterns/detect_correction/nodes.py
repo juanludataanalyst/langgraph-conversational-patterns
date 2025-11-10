@@ -27,15 +27,16 @@ class DetectCorrectionNodes:
         # Correction patterns (English)
         self.correction_patterns = {
             "correction_dish": [
-                r"\b(no,?\s*|wait,?\s*|actually,?\s*)(i\s+want|i\s+prefer|better)\s+(.+)",
-                r"\b(actually|i\s+mean)\s+(.+)",
-                r"\b(change\s+to|i\s+prefer)\s+(.+)",
-                r"\b(no,?\s*better)\s+(.+)"
+                r"\b(no,?\s*|wait,?\s*|actually,?\s*)(i\s+want|i\s+prefer|better)\s+(pizza|burger|taco|salad)",
+                r"\b(actually|i\s+mean)\s+(a|an)?\s*(pizza|burger|taco|salad)",
+                r"\b(change\s+to|i\s+prefer)\s+(a|an)?\s*(pizza|burger|taco|salad)",
+                r"\b(no,?\s*better)\s+(a|an)?\s*(pizza|burger|taco|salad)"
             ],
             "correction_size": [
                 r"\b(no,?\s*)(large|medium|small)",
                 r"\b(better|actually)\s+(large|medium|small)",
-                r"\b(make\s+it)\s+(large|medium|small)"
+                r"\b(make\s+it)\s+(large|medium|small)",
+                r"\b(i\s+prefer)\s+(large|medium|small)"
             ],
             "rejection": [
                 r"\b(no,?\s*thanks|no\s+thank\s+you|cancel\s+everything)",
@@ -133,22 +134,14 @@ class DetectCorrectionNodes:
     def detect_intent_node(self, state: DetectCorrectionState) -> DetectCorrectionState:
         """
         Detects user intent, modified by any correction detected previously.
-        
+
         Following aibarber pattern: correction_detected influences how intent is determined.
+        NOTE: Rejection is handled in detect_correction_node and routed directly to respond_user.
         """
         print("🎯 Detecting intent...")
-        
+
         correction_detected = state.get("correction_detected")
-        
-        # Handle rejection first (early exit)
-        if correction_detected == "rejection":
-            print("🚫 Rejection detected, setting intent to 'reject'")
-            return {
-                **state,
-                "intent": "reject",
-                "answer": "No problem. Have a great day!"
-            }
-        
+
         if not state["messages"]:
             return {**state}
         

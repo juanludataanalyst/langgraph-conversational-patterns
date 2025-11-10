@@ -1,7 +1,7 @@
 """
 State definition for the Detect Correction pattern.
 
-Educational pattern following aibarber's structure but with food orders domain.
+Educational pattern for food ordering with correction detection.
 Demonstrates correction detection with regex patterns (no LLM needed).
 """
 
@@ -14,7 +14,7 @@ class DetectCorrectionState(TypedDict):
     """
     State for the Detect Correction conversational pattern.
 
-    Follows aibarber's structure: detect_correction → detect_intent → process_intent → respond_user
+    Flow: detect_correction → detect_intent → process_intent → respond_user
     Uses food orders as educational domain with regex-based detection.
 
     Attributes:
@@ -36,7 +36,7 @@ class DetectCorrectionState(TypedDict):
     # Order processing (from process_intent node)
     current_order: Optional[Dict[str, Any]]  # {"dish": "pizza", "size": "large", "extras": ["cheese"]}
 
-    # Flow control (like aibarber/appointment_management)
+    # Flow control - tracks conversational state
     current_step: Optional[str]  # "awaiting_size", "awaiting_dish", "completed", None
 
     # Response handling (for respond_user node)
