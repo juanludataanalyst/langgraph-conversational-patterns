@@ -61,9 +61,16 @@ A conversational agent that helps users modify or cancel existing appointments. 
 A conversational agent that detects and handles user corrections in real-time. The agent identifies when users are correcting previous statements (changing dishes, sizes, rejecting offers) and adjusts the conversation flow accordingly. Uses regex-based detection for fast, reliable correction identification.
 
 <div align="center">
+  <a href="https://www.youtube.com/watch?v=AwPVnf-_UYM" rel="nofollow">
+    <img src="https://img.youtube.com/vi/AwPVnf-_UYM/0.jpg" alt="Detect Correction Pattern Tutorial" style="max-width: 100%; border-radius: 8px;">
+  </a>
+</div>
+
+<div align="center">
   <img src="img/Correction_diagram.PNG" alt="Detect Correction Pattern Diagram" style="max-width: 100%; border-radius: 8px; margin-top: 20px;">
 </div>
 
+- **Video Tutorial**: [Watch on YouTube](https://www.youtube.com/watch?v=AwPVnf-_UYM)
 - **Code**: `patterns/detect_correction/`
 - **Domain**: Food ordering system
 
